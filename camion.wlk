@@ -3,6 +3,7 @@ object camion {
     const tara = 1000
     method cargarCosa(unaCosa) = carga.add(unaCosa)
     method descargar(unaCosa) = carga.remove(unaCosa)
+    method cargarVariasCosas(listaCosas) = carga.addAll(listaCosas) 
     method pesoTotal() = 1000 + self.pesoDeLaCarga().sum()
     method pesoDeLaCarga() = carga.map({c => c.peso()}) 
     method todosPesosImpares() = self.pesoDeLaCarga().all({e => e.odd()})

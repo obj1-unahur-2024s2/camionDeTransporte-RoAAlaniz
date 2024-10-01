@@ -26,17 +26,17 @@ object arena {
 
 object bateriaAntiaerea {
     var property estaConMisiles = false
-    method peso() {if (estaConMisiles) 300 else 200}
-    method peligrosidad() {if (estaConMisiles) 100 else 0}
+    method peso() = if (estaConMisiles) 300 else 200
+    method peligrosidad() = if (estaConMisiles) 100 else 0
 }
 
- object contenedorPortuario {
+ object contenedor {
     const cosas = []
     method sacarCosa(unaCosa) = cosas.remove(unaCosa)
     method ponerCosa(unaCosa) = cosas.add(unaCosa)
     method agregarVariasCosas(listaCosas) = cosas.addAll(listaCosas)
     method peso() = 100 + cosas.sum({c => c.peso()})
-    method peligrosidad() {if (cosas.isEmpty()) 0 else cosas.max({c => c.peligrosidad()}).peligrosidad()}
+    method peligrosidad() = if (cosas.isEmpty()) 0 else cosas.max({c => c.peligrosidad()}).peligrosidad()
                                                                     //obj mas peligroso   //peligrosidad(nro)  == esto retorna la peligrosidad de aquel obj peligroso
     
  } 
@@ -48,6 +48,6 @@ object bateriaAntiaerea {
 
   object embalajeSeguridad {
     var property cosaEnvuelta = arena
-    method embalar() = cosaEnvuelta.peso()
+    method peso() = cosaEnvuelta.peso()
     method peligrosidad() = cosaEnvuelta.peligrosidad() * 0.5
   }
