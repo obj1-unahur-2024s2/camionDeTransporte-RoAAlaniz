@@ -20,6 +20,7 @@ object camion {
     method excedidoMaximoPeso() {
         self.pesoTotal() > 2500
     }
-    method puedeCircularEnRuta(unValor) = !self.excedidoMaximoPeso() && carga.any({c => c.peligrosidad() > unValor})
-    
+    method puedeCircularEnRuta(unValor) {
+        !self.excedidoMaximoPeso() && carga.any({c => c.peligrosidad() > unValor})
+    }
 }
