@@ -23,4 +23,9 @@ object camion {
     method puedeCircularEnRuta(unValor) {
         !self.excedidoMaximoPeso() && carga.any({c => c.peligrosidad() > unValor})
     }
+    method tieneCosaQuePesaEntre(min, max) {
+        carga.any({c => c.peso().between(min, max)})
+        //carga.any({c => c.peso() >= min and c.peso() <= max})
+    }
+    method cosaMasPesada() = carga.max({c => c.peso()}) //maximo valor de peso
 }

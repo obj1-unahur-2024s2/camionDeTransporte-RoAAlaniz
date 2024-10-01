@@ -47,7 +47,7 @@ object bateriaAntiaerea {
  }
 
   object embalajeSeguridad {
-    var property cosaEnvuelta = null
+    var property cosaEnvuelta = arena
     method embalar() = cosaEnvuelta.peso()
     method peligrosidad() = cosaEnvuelta.peligrosidad() * 0.5
   }
